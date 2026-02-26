@@ -1,0 +1,36 @@
+body {
+    font-family: sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+.painel {
+    background: white;
+    width: 350px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.pista {
+    height: 120px;
+    background: #eee;
+    margin: 20px 0;
+    position: relative;
+    border-bottom: 2px solid #333;
+}
+#aviao {
+    width: 60px;
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    transition: all 0.8s ease-in-out;
+}
+.controles button {
+    margin: 5px;
+    padding: 8px;
+    cursor: pointer;
+}
+.status-voo { color: green; }
+.status-chao { color: red; }

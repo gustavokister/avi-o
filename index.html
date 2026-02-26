@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Aeroporto Inteligente</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="painel">
+        <h1>Painel de Voo</h1>
+        <div class="info">
+            <p>Voo: <span id="txt-codigo"></span></p>
+            <p>Rota: <span id="txt-rota"></span></p>
+            <p>Horário: <span id="txt-horario"></span></p>
+            <p>Status: <strong id="txt-status"></strong></p>
+            <p>Altitude: <span id="txt-altitude"></span>m</p>
+        </div>
+        <div class="pista">
+            <img id="aviao" src="https://cdn-icons-png.flaticon.com/512/723/723955.png">
+        </div>
+        <div class="controles">
+            <button onclick="meuVoo.decolar()">Decolar</button>
+            <button onclick="meuVoo.subir()">Subir +1000m</button>
+            <button onclick="meuVoo.pousar()">Pousar</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
