@@ -48,7 +48,69 @@ class Voo {
         this.altitude = 0;
         this.atualizarStatus();
     }
+
+    comunicarTorre() {
+    return "Torre, aqui é o voo " + this.codigo + " solicitando instruções.";
+}
 }
 
-const meuVoo = new Voo("XP-2024", "São Paulo", "Rio", "14:00");
+class JatoExecutivo extends Voo {
+    constructor(codigo, origem, destino, horario) {
+        super(codigo, origem, destino, horario);
+        this.modoSupersonico = false;
+    }
+
+    ativarSupersonico() {
+        if (this.altitude > 0) {
+            this.modoSupersonico = true;
+            this.altitude += 5000;
+            this.status = "Supersônico";
+            this.atualizarStatus();
+        }
+    }
+
+    desativarSupersonico() {
+        this.modoSupersonico = false;
+        this.status = "Em Voo";
+        this.atualizarStatus();
+    }
+
+    comunicarTorre() {
+    return "Torre, voo VIP " + this.codigo + " na escuta, prioridade de pouso.";
+}
+}
+
+class VooCarga extends Voo {
+    constructor(codigo, origem, destino, horario, capacidadeMaxima) {
+        super(codigo, origem, destino, horario);
+        this.capacidadeMaxima = capacidadeMaxima;
+        this.cargaAtual = 0;
+    }
+
+    embarcarCarga(toneladas) {
+
+        if (this.cargaAtual + toneladas <= this.capacidadeMaxima) {
+
+            this.cargaAtual += toneladas;
+            console.log("Carga embarcada. Total:", this.cargaAtual, "t");
+
+        } else {
+
+            console.log("ERRO: Capacidade máxima excedida!");
+        }
+    }
+
+    comunicarTorre() {
+    return "Torre, cargueiro pesado " + this.codigo + " se aproximando.";
+}
+}
+
+const meuVoo = new JatoExecutivo("XP-2024", "São Paulo", "Rio", "14:00");
+
 meuVoo.atualizarStatus();
+
+const cargueiro = new VooCarga("CG-9090","Miami","Curitiba","18:00",50);
+
+cargueiro.embarcarCarga(20);
+cargueiro.embarcarCarga(40);
+
